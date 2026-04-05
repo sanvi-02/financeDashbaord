@@ -119,10 +119,9 @@ export function AppProvider({ children }) {
     setCards(prev => prev.map(c => c.id === id ? { ...c, balance: newBalance } : c));
   }, []);
 
-  // Role actions
   const canModifyTransactions = userRole === 'admin';
 
-  // Filter transactions by time
+
   const filteredTransactionsByTime = useMemo(() => {
     if (timeFilter === 'all') return transactions;
 
@@ -146,7 +145,7 @@ export function AppProvider({ children }) {
     return transactions.filter(t => new Date(t.date) >= filterDate);
   }, [transactions, timeFilter]);
 
-  // Analytics calculations
+
   const analytics = useMemo(() => {
     const expenses = filteredTransactionsByTime.filter(t => t.type === 'expense' && t.status === 'Completed');
     const income = filteredTransactionsByTime.filter(t => t.type === 'income' && t.status === 'Completed');
@@ -155,7 +154,6 @@ export function AppProvider({ children }) {
     const totalIncome = income.reduce((sum, t) => sum + t.amount, 0);
     const netBalance = totalIncome - totalExpenses;
 
-    // Time series data (group by month)
     const monthNames = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
     const monthlyData = monthNames.map((month, index) => {
       const monthIncome = income
@@ -172,7 +170,7 @@ export function AppProvider({ children }) {
       };
     });
 
-    // Expense breakdown by category
+
     const categoryTotals = expenses.reduce((acc, t) => {
       acc[t.category] = (acc[t.category] || 0) + t.amount;
       return acc;
@@ -182,17 +180,17 @@ export function AppProvider({ children }) {
       .map(([name, value]) => ({ name, value }))
       .sort((a, b) => b.value - a.value);
 
-    // Color palette for charts
+    
     const colors = ['#10b981', '#14b8a6', '#2dd4bf', '#5eead4', '#99f6e4', '#ccfbf1', '#f472b6', '#a78bfa'];
     const expenseBreakdownWithColors = expenseBreakdown.map((item, index) => ({
       ...item,
       color: colors[index % colors.length],
     }));
 
-    // Highest spending category
+    
     const highestSpendingCategory = expenseBreakdown[0] || { name: 'None', value: 0 };
 
-    // Monthly change calculation
+   
     const currentMonth = new Date().getMonth();
     const currentMonthIncome = monthlyData[currentMonth]?.income || 0;
     const currentMonthExpenses = monthlyData[currentMonth]?.expenses || 0;
@@ -247,24 +245,21 @@ export function AppProvider({ children }) {
   }, [transactions]);
 
   const value = {
-    // Role
     userRole,
     setUserRole,
     canModifyTransactions,
 
-    // Transactions
     transactions,
     filteredTransactions,
     addTransaction,
     deleteTransaction,
 
-    // Cards
     cards,
     addCard,
     deleteCard,
     updateCardBalance,
 
-    // Filters
+  
     searchQuery,
     setSearchQuery,
     filterType,
@@ -277,7 +272,7 @@ export function AppProvider({ children }) {
     timeFilter,
     setTimeFilter,
 
-    // Insights & Analytics
+
     insights,
     analytics,
   };

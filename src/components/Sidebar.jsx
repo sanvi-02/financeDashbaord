@@ -30,7 +30,7 @@ export default function Sidebar({ activePage, onPageChange }) {
 
   return (
     <>
-      {/* Mobile Menu Button */}
+
       <button
         onClick={() => setIsMobileOpen(!isMobileOpen)}
         className="fixed top-4 left-4 z-50 p-2 rounded-lg bg-white dark:bg-slate-800 shadow-md lg:hidden transition-all duration-300 hover:shadow-lg"
@@ -42,7 +42,6 @@ export default function Sidebar({ activePage, onPageChange }) {
         )}
       </button>
 
-      {/* Overlay for mobile */}
       {isMobileOpen && (
         <div
           className="fixed inset-0 bg-black/50 z-30 lg:hidden backdrop-blur-sm"
@@ -50,13 +49,13 @@ export default function Sidebar({ activePage, onPageChange }) {
         />
       )}
 
-      {/* Sidebar */}
+   
       <aside
         className={`fixed left-0 top-0 h-full w-64 bg-white dark:bg-slate-900 border-r border-slate-200 dark:border-slate-800 z-40 transform transition-transform duration-300 ease-in-out lg:translate-x-0 ${
           isMobileOpen ? 'translate-x-0' : '-translate-x-full'
         }`}
       >
-        {/* Logo */}
+    
         <div className="flex items-center gap-3 p-6 border-b border-slate-200 dark:border-slate-800">
           <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-emerald-500 to-teal-600 flex items-center justify-center shadow-lg shadow-emerald-500/20">
             <PiggyBank className="w-6 h-6 text-white" />
@@ -67,7 +66,7 @@ export default function Sidebar({ activePage, onPageChange }) {
           </div>
         </div>
 
-        {/* Main Menu */}
+ 
         <div className="p-4">
           <p className="text-xs font-semibold text-slate-400 dark:text-slate-500 uppercase tracking-wider mb-4 px-3">
             Main Menu
@@ -94,7 +93,6 @@ export default function Sidebar({ activePage, onPageChange }) {
           </nav>
         </div>
 
-        {/* Bottom Menu */}
         <div className="absolute bottom-0 left-0 right-0 p-4 border-t border-slate-200 dark:border-slate-800">
           <nav className="space-y-1">
             {bottomMenuItems.map((item) => {

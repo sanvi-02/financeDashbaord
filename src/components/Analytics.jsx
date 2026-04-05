@@ -33,7 +33,6 @@ import {
 } from 'lucide-react';
 import { useApp } from '../context/AppContext';
 
-// Custom Tooltip for Charts
 function CustomTooltip({ active, payload, label }) {
   if (active && payload && payload.length) {
     return (
@@ -53,8 +52,6 @@ function CustomTooltip({ active, payload, label }) {
   }
   return null;
 }
-
-// KPI Card Component
 function KPICard({ title, amount, change, isPositive, icon: Icon, color }) {
   return (
     <div className="group relative bg-white dark:bg-slate-800 rounded-2xl p-5 shadow-sm border border-slate-200 dark:border-slate-700 transition-all duration-300 hover:shadow-lg hover:scale-[1.02] overflow-hidden">
@@ -87,7 +84,7 @@ function KPICard({ title, amount, change, isPositive, icon: Icon, color }) {
   );
 }
 
-// Time Series Chart Component
+
 function TimeSeriesChart({ data }) {
   return (
     <div className="h-80">
@@ -142,7 +139,6 @@ function TimeSeriesChart({ data }) {
   );
 }
 
-// Expense Breakdown Pie Chart
 function ExpenseBreakdownChart({ data }) {
   return (
     <div className="h-72">
@@ -179,7 +175,6 @@ function ExpenseBreakdownChart({ data }) {
   );
 }
 
-// Card Component
 function BankCard({ card, onDelete }) {
   return (
     <div className={`relative rounded-2xl p-5 text-white overflow-hidden bg-gradient-to-br ${card.color} shadow-lg transition-transform duration-300 hover:scale-[1.02]`}>
@@ -219,7 +214,6 @@ function BankCard({ card, onDelete }) {
   );
 }
 
-// Add Card Modal
 function AddCardModal({ isOpen, onClose, onAdd }) {
   const [formData, setFormData] = useState({
     name: '',
@@ -337,8 +331,6 @@ function AddCardModal({ isOpen, onClose, onAdd }) {
     </div>
   );
 }
-
-// Main Analytics Component
 export default function Analytics() {
   const {
     analytics,
@@ -371,7 +363,7 @@ export default function Analytics() {
 
   return (
     <div className="space-y-6">
-      {/* Header */}
+
       <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
         <div>
           <h2 className="text-xl font-bold text-slate-800 dark:text-white">Analytics Dashboard</h2>
@@ -427,10 +419,7 @@ export default function Analytics() {
           color="from-amber-500 to-orange-600"
         />
       </div>
-
-      {/* Charts Row */}
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
-        {/* Time Series Chart */}
         <div className="bg-white dark:bg-slate-800 rounded-2xl p-6 shadow-sm border border-slate-200 dark:border-slate-700">
           <div className="flex items-center justify-between mb-4">
             <div>
@@ -471,8 +460,6 @@ export default function Analytics() {
           )}
         </div>
       </div>
-1
-      {/* My Cards Section */}
       <div className="bg-white dark:bg-slate-800 rounded-2xl p-6 shadow-sm border border-slate-200 dark:border-slate-700">
         <div className="flex items-center justify-between mb-6">
           <div>
@@ -494,8 +481,6 @@ export default function Analytics() {
           ))}
         </div>
       </div>
-
-      {/* Quick Stats */}
       <div className="bg-gradient-to-r from-emerald-500 to-teal-600 rounded-2xl p-6 text-white">
         <div className="flex flex-col md:flex-row items-center justify-between gap-4">
           <div>
@@ -516,8 +501,6 @@ export default function Analytics() {
           </div>
         </div>
       </div>
-
-      {/* Add Card Modal */}
       <AddCardModal
         isOpen={showAddCardModal}
         onClose={() => setShowAddCardModal(false)}

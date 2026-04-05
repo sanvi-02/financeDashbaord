@@ -107,7 +107,7 @@ export default function Dashboard() {
         })}
       </div>
 
-      {/* Charts Section */}
+
       <Charts />
 
       {/* Quick Actions */}

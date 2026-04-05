@@ -107,8 +107,6 @@ export function ExpenseDonutChart() {
     </div>
   );
 }
-
-/* ================= BAR CHART ================= */
 export function WeeklyBarChart() {
   const { analytics } = useApp();
   const { monthlyData = [] } = analytics || {};
@@ -130,41 +128,32 @@ export function WeeklyBarChart() {
     <div className="h-72 min-h-[260px]">
       <ResponsiveContainer width="100%" height="100%">
         <BarChart data={weeklyData} barGap={8}>
-          {/* GRID */}
           <CartesianGrid
             strokeDasharray="3 3"
             stroke="#e2e8f0"
             vertical={false}
           />
 
-          {/* X AXIS */}
           <XAxis
             dataKey="day"
             axisLine={false}
             tickLine={false}
             tick={{ fill: "#64748b", fontSize: 12 }}
           />
-
-          {/* Y AXIS */}
           <YAxis
             axisLine={false}
             tickLine={false}
             tick={{ fill: "#64748b", fontSize: 12 }}
             tickFormatter={(value) => `$${value}`}
           />
-
-          {/* TOOLTIP */}
           <Tooltip content={<CustomTooltip />} />
 
-          {/* LEGEND */}
           <Legend
             verticalAlign="top"
             align="right"
             iconType="circle"
             wrapperStyle={{ fontSize: "12px" }}
           />
-
-          {/* GRADIENTS */}
           <defs>
             <linearGradient id="incomeGradient" x1="0" y1="0" x2="0" y2="1">
               <stop offset="0%" stopColor="#2dd4bf" />
@@ -193,8 +182,6 @@ export function WeeklyBarChart() {
             radius={[6, 6, 0, 0]}
             maxBarSize={35}
           />
-
-          {/* NET LINE FIX */}
           <Line
             type="monotone"
             dataKey="net"
@@ -207,20 +194,15 @@ export function WeeklyBarChart() {
     </div>
   );
 }
-
-/* ================= MAIN ================= */
 export default function Charts() {
   return (
     <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
-      {/* Expense Breakdown */}
       <div className="bg-white dark:bg-slate-800 rounded-2xl p-6 shadow-sm border border-slate-200 dark:border-slate-700 hover:shadow-lg transition">
         <h3 className="text-lg font-semibold text-slate-800 dark:text-white mb-4">
           Expense Breakdown
         </h3>
         <ExpenseDonutChart />
       </div>
-
-      {/* Monthly Overview */}
       <div className="bg-white dark:bg-slate-800 rounded-2xl p-6 shadow-sm border border-slate-200 dark:border-slate-700 hover:shadow-lg transition">
         <h3 className="text-lg font-semibold text-slate-800 dark:text-white mb-4">
           Monthly Overview

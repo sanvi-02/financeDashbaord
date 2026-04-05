@@ -110,8 +110,6 @@ export default function Transactions() {
       deleteTransaction(id);
     }
   };
-
-  // Calculate displayed transactions totals
   const displayedIncome = filteredTransactions
     .filter(t => t.type === 'income' && t.status === 'Completed')
     .reduce((sum, t) => sum + t.amount, 0);
@@ -122,10 +120,10 @@ export default function Transactions() {
 
   return (
     <div className="space-y-6">
-      {/* Payment Card */}
+
       <PaymentCard />
 
-      {/* Title Section */}
+ 
       <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
         <div>
           <h2 className="text-xl font-bold text-slate-800 dark:text-white">
@@ -262,7 +260,6 @@ export default function Transactions() {
             />
           </div>
 
-          {/* Filter Type */}
           <div className="relative">
             <select
               value={filterType}
@@ -276,7 +273,7 @@ export default function Transactions() {
             <ChevronDown className="absolute right-3 top-1/2 -translate-y-1/2 w-4 h-4 text-slate-400 pointer-events-none" />
           </div>
 
-          {/* Filter Category */}
+     
           <div className="relative">
             <select
               value={filterCategory}
@@ -292,7 +289,7 @@ export default function Transactions() {
             <Filter className="absolute right-3 top-1/2 -translate-y-1/2 w-4 h-4 text-slate-400 pointer-events-none" />
           </div>
 
-          {/* Sort */}
+
           <div className="relative">
             <select
               value={sortBy}
@@ -308,7 +305,7 @@ export default function Transactions() {
           </div>
         </div>
 
-        {/* Active Filters Display */}
+
         {(searchQuery || filterType !== 'all' || filterCategory !== 'all') && (
           <div className="flex flex-wrap items-center gap-2 mt-4 pt-4 border-t border-slate-200 dark:border-slate-700">
             <span className="text-xs text-slate-500 dark:text-slate-400">Active filters:</span>
@@ -345,7 +342,6 @@ export default function Transactions() {
         )}
       </div>
 
-      {/* Table */}
       <div className="bg-white dark:bg-slate-800 rounded-2xl shadow-sm border border-slate-200 dark:border-slate-700 overflow-hidden">
         <div className="overflow-x-auto">
           <table className="w-full">
@@ -460,7 +456,6 @@ export default function Transactions() {
         </div>
       </div>
 
-      {/* Add Transaction Modal */}
       {showAddModal && canModifyTransactions && (
         <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/50 backdrop-blur-sm">
           <div className="bg-white dark:bg-slate-800 rounded-2xl shadow-xl w-full max-w-md overflow-hidden animate-fade-in">
