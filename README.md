@@ -10,18 +10,20 @@ A modern, responsive Finance Dashboard built with React, Tailwind CSS, and Recha
   - Summary cards with income, expenses, revenue, and savings
   - Donut chart for expense categories
   - Bar chart for weekly financial data
+  - Add or delete your cards
 - **Transactions Page**:
   - Complete transaction table with sorting and filtering
   - Add new transactions with form modal
   - Delete transactions
   - Status badges (Completed, Pending, Failed)
   - Real-time balance calculations
+  - Export csv for transactions
 - **Responsive Design**: Sidebar collapses on mobile, fully responsive layout
 - **Interactive Elements**: Hover effects, smooth transitions, and animations
 
 ## Tech Stack
 
-- React 18 (Functional Components + Hooks)
+- React 
 - Tailwind CSS (with custom color palette)
 - Recharts (for data visualization)
 - Lucide React (for icons)
