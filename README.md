@@ -2,8 +2,6 @@
 
 A modern, responsive Finance Dashboard built with React, Tailwind CSS, and Recharts.
 
-![Dashboard Screenshot](./screenshot.png)
-
 ## Features
 
 - **Premium UI Design**: Clean, modern fintech interface with soft shadows, rounded cards, and smooth animations
