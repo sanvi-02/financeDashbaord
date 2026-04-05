@@ -19,7 +19,7 @@ function AppContent() {
         <Header />
 
         <main className="p-6">
-          {activePage === "financial" && <FinancialDashboard />}
+          {/* {activePage === "financial" && <FinancialDashboard />} */}
           {activePage === 'analytics' && <Analytics />}
           {activePage === "transactions" && <Transactions />}
           {/* {activePage === "dashboard" && <Dashboard />} */}

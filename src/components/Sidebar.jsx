@@ -11,7 +11,6 @@ import {
 } from 'lucide-react';
 
 const menuItems = [
-  { id: 'financial', label: 'Dashboard', icon: LayoutDashboard },
   { id: 'analytics', label: 'Analytics', icon: BarChart3 },
   { id: 'transactions', label: 'Transactions', icon: ArrowRightLeft },
 ];
